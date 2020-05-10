@@ -2,7 +2,8 @@ import React from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import { createStore } from "redux";
 import {Provider} from "react-redux";
-import * as page from './pages/Home';
+import Home from './pages/Home';
+import Login from './pages/Home';
 
 
 function App() {
@@ -10,8 +11,8 @@ function App() {
     <div className="App">
         <BrowserRouter>
           <Switch>
-            <Route exact path = "/" component = {page.Home} />
-            <Route exact path = "/login" component = {page.Login} />
+            <Route exact path = "/" component = {Home} />
+            <Route exact path = "/login" component = {Login} />
           </Switch>
         </BrowserRouter>
     </div>
