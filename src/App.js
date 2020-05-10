@@ -3,7 +3,8 @@ import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import { createStore } from "redux";
 import {Provider} from "react-redux";
 import Home from './pages/Home';
-import Login from './pages/Home';
+import Login from './pages/Login';
+import Register from './pages/Register';
 
 
 function App() {
@@ -12,7 +13,8 @@ function App() {
         <BrowserRouter>
           <Switch>
             <Route exact path = "/" component = {Home} />
-            <Route exact path = "/login" component = {Login} />
+            <Route path = "/login" component = {Login} />
+            <Route path = "/register" component = {Register} />
           </Switch>
         </BrowserRouter>
     </div>
