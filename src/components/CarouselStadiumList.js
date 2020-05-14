@@ -12,7 +12,7 @@ export default function CarouselStadiumList(){
                             <div className="carousel-caption d-none d-md-block">
                                 <h1>Arena Castelão</h1>
                                 <button className="btn btn-success">
-                                    <a href="/dashboard/stadiumList/castelao">Ver Mais</a>
+                                    <a href="/dashboard/stadiumList/info">Ver Mais</a>
                                 </button>
                             </div>
                         </div>
@@ -22,7 +22,7 @@ export default function CarouselStadiumList(){
                             <div className="carousel-caption d-none d-md-block">
                                 <h1>Arena Fonte Nova</h1>
                                 <button className="btn btn-success">
-                                    <a href="/dashboard/stadiumList/castelao">Ver Mais</a>
+                                    <a href="/dashboard/stadiumList/info">Ver Mais</a>
                                 </button>
                             </div>
                         </div>
@@ -32,7 +32,7 @@ export default function CarouselStadiumList(){
                             <div className="carousel-caption d-none d-md-block">
                                 <h1>Estádio Morumbi</h1>
                                 <button className="btn btn-success">
-                                    <a href="/dashboard/stadiumList/castelao">Ver Mais</a>
+                                    <a href="/dashboard/stadiumList/info">Ver Mais</a>
                                 </button>
                             </div>
                         </div>
@@ -42,7 +42,7 @@ export default function CarouselStadiumList(){
                             <div className="carousel-caption d-none d-md-block">
                                 <h1>Estádio Mineirão</h1>
                                 <button className="btn btn-success">
-                                    <a href="/dashboard/stadiumList/mineirao">Ver Mais</a>
+                                    <a href="/dashboard/stadiumList/info">Ver Mais</a>
                                 </button>
                             </div>
                         </div>
@@ -52,7 +52,7 @@ export default function CarouselStadiumList(){
                             <div className="carousel-caption d-none d-md-block">
                                 <h1>Estádio Vila Belmiro</h1>
                                 <button className="btn btn-success">
-                                    <a href="/dashboard/stadiumList/vila-belmiro">Ver Mais</a>
+                                    <a href="/dashboard/stadiumList/info">Ver Mais</a>
                                 </button>
                             </div>
                         </div>
@@ -62,7 +62,7 @@ export default function CarouselStadiumList(){
                             <div className="carousel-caption d-none d-md-block">
                                 <h1>Estádio Maracanã</h1>
                                 <button className="btn btn-success">
-                                    <a href="/dashboard/stadiumList/maracana">Ver Mais</a>
+                                    <a href="/dashboard/stadiumList/info">Ver Mais</a>
                                 </button>
                             </div>
                         </div>
@@ -72,7 +72,7 @@ export default function CarouselStadiumList(){
                             <div className="carousel-caption d-none d-md-block">
                                 <h1>Estádio São Januário</h1>
                                 <button className="btn btn-success">
-                                    <a href="/dashboard/stadiumList/sao-januario">Ver Mais</a>
+                                    <a href="/dashboard/stadiumList/info">Ver Mais</a>
                                 </button>
                             </div>
                         </div>
@@ -82,7 +82,7 @@ export default function CarouselStadiumList(){
                             <div className="carousel-caption d-none d-md-block">
                                 <h1>Estádio Beira-Rio</h1>
                                 <button className="btn btn-success">
-                                    <a href="/dashboard/stadiumList/beira-rio">Ver Mais</a>
+                                    <a href="/dashboard/stadiumList/info">Ver Mais</a>
                                 </button>
                             </div>
                         </div>
@@ -92,7 +92,7 @@ export default function CarouselStadiumList(){
                             <div className="carousel-caption d-none d-md-block">
                                 <h1>Estádio La Bombonera</h1>
                                 <button className="btn btn-success">
-                                    <a href="/dashboard/stadiumList/la-bombonera">Ver Mais</a>
+                                    <a href="/dashboard/stadiumList/info">Ver Mais</a>
                                 </button>
                             </div>
                         </div>
@@ -102,7 +102,7 @@ export default function CarouselStadiumList(){
                             <div className="carousel-caption d-none d-md-block">
                                 <h1>Estádio Monumental de Núñez</h1>
                                 <button className="btn btn-success">
-                                    <a href="/dashboard/stadiumList/monumental-de-nunez">Ver Mais</a>
+                                    <a href="/dashboard/stadiumList/info">Ver Mais</a>
                                 </button>
                             </div>
                         </div>
@@ -112,7 +112,7 @@ export default function CarouselStadiumList(){
                             <div className="carousel-caption d-none d-md-block">
                                 <h1>Estádio Libertadores da América</h1>
                                 <button className="btn btn-success">
-                                    <a href="/dashboard/stadiumList/libertadores-america">Ver Mais</a>
+                                    <a href="/dashboard/stadiumList/info">Ver Mais</a>
                                 </button>
                             </div>
                         </div>
@@ -122,7 +122,7 @@ export default function CarouselStadiumList(){
                             <div className="carousel-caption d-none d-md-block">
                                 <h1>Estádio El Cilindro</h1>
                                 <button className="btn btn-success">
-                                    <a href="/dashboard/stadiumList/el-cilindro">Ver Mais</a>
+                                    <a href="/dashboard/stadiumList/info">Ver Mais</a>
                                 </button>
                             </div>
                         </div>
