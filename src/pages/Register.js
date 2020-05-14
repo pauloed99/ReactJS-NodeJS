@@ -27,6 +27,8 @@ export default function Register() {
                 <label for="password">Repita a sua Senha : </label>
                 <input className="form-control" type="password" id = "password" name="password" placeholder="Digite sua senha" 
                 required />
+                <br />
+                <button className="btn btn-success" type="submit">Sign up</button>
             </form>
           </div>
       </div>

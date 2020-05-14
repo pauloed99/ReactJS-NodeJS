@@ -21,6 +21,8 @@ export default function Login() {
                 <label for="password">Senha : </label>
                 <input className="form-control" type="password" id = "password" name="password" placeholder="Digite sua senha" 
                 required />
+                <br />
+                <input className="btn btn-success" type="submit" value="Sign in" />
             </form>
           </div>
       </div>

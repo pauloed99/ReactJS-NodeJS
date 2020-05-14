@@ -1,10 +1,12 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
+import './index.css';
 import { createStore } from "redux";
 import {Provider} from "react-redux";
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import StadiumList from './pages/StadiumList';
 
 
 function App() {
@@ -15,6 +17,7 @@ function App() {
             <Route exact path = "/" component = {Home} />
             <Route path = "/login" component = {Login} />
             <Route path = "/register" component = {Register} />
+            <Route path = "/dashboard/stadiumList" component = {StadiumList} />
           </Switch>
         </BrowserRouter>
     </div>
