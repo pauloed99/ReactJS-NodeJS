@@ -15,8 +15,8 @@ export default function Login() {
       <div className="card container mt-4">
           <div className="card-body">
             <form>
-                <label for="cpf">CPF : </label>
-                <input className="form-control" type="text" id = "cpf" name="cpf" placeholder="Digite seu CPF" 
+                <label for="email">Email : </label>
+                <input className="form-control" type="email" id = "email" name="email" placeholder="Digite seu email" 
                 required />
                 <label for="password">Senha : </label>
                 <input className="form-control" type="password" id = "password" name="password" placeholder="Digite sua senha" 
@@ -29,4 +29,3 @@ export default function Login() {
     </div>
   );
 }
-

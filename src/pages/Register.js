@@ -21,6 +21,9 @@ export default function Register() {
                 <label for="cpf">CPF : </label>
                 <input className="form-control" type="text" id = "cpf" name="cpf" placeholder="Digite seu CPF" 
                 required />
+                <label for="email">Email : </label>
+                <input className="form-control" type="email" name="email" id="email" placeholder="digite seu email" 
+                required /> 
                 <label for="password">Senha : </label>
                 <input className="form-control" type="password" id = "password" name="password" placeholder="Digite sua senha" 
                 required />

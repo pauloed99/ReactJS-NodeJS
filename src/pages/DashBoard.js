@@ -1,9 +1,9 @@
 import React from 'react';
 import NavBar from '../components/NavBar';
 
-export default function DashBoard(){
+export default function Dashboard(){
     return(
-        <div className="DashBoard">
+        <div className="Dashboard">
             <NavBar />
         </div>
     );

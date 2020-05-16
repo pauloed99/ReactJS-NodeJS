@@ -22,7 +22,7 @@ export default function Accordion() {
 
           <div
             id="collapseOne"
-            class="collapse show"
+            class="collapse"
             aria-labelledby="headingOne"
             data-parent="#accordionExample"
           >
