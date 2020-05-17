@@ -3,6 +3,7 @@ import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import './index.css';
 import { createStore } from "redux";
 import {Provider} from "react-redux";
+import {rootReducer} from './redux/reducers/rootReducer';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
@@ -12,10 +13,12 @@ import TravelRegister from './pages/TravelRegister';
 import Dashboard from './pages/Dashboard';
 
 
+const store = createStore(rootReducer);
 
-function App() {
+export default function App() {
   return (
     <div className="App">
+      <Provider store={store}>
         <BrowserRouter>
           <Switch>
             <Route exact path = "/" component = {Home} />
@@ -27,8 +30,9 @@ function App() {
             <Route path = "/dashboard/travel-register" component = {TravelRegister} />
           </Switch>
         </BrowserRouter>
+      </Provider>  
     </div>
   );
 }
 
-export default App;
+

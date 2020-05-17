@@ -10,8 +10,8 @@ export default function TravelRegister(){
             <div className="card">
                 <div className="card-body">
                     <form>
-                        <label for="estadio">Estádio que você vai visitar : </label>
-                        <select className="form-control" id="estadio" name="estadio">
+                        <label for="stadium">Estádio que você vai visitar : </label>
+                        <select className="form-control" id="stadium" name="stadium">
                             <option>Arena Castelão</option>
                             <option>Arena Fonte Nova</option>
                             <option>Estádio Maracanã</option>
@@ -24,13 +24,13 @@ export default function TravelRegister(){
                             <option>Estádio Libertadores de América</option>
                             <option>Estádio El Cilindro</option>
                         </select>
-                        <label for="pais">País de destino : </label>
-                        <select className="form-control" id="pais" name="pais">
+                        <label for="country">País de destino : </label>
+                        <select className="form-control" id="country" name="country">
                             <option>Brasil</option>
                             <option>Argentina</option>
                         </select>
-                        <label for="cidade">Cidade de destino : </label>
-                        <select className="form-control" id="cidade" name="cidade">
+                        <label for="city">Cidade de destino : </label>
+                        <select className="form-control" id="city" name="city">
                             <option>Fortaleza</option>
                             <option>Salvador</option>
                             <option>Santos</option>

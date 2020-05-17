@@ -16,7 +16,10 @@ export default function Register() {
           <div className="card-body">
             <form>
                 <label for="name">Nome : </label>
-                <input className="form-control" type="text" id = "name" name="name" placeholder="Digite seu nome completo" 
+                <input className="form-control" type="text" id = "name" name="name" placeholder="Digite seu nome" 
+                required />
+                <label for="name">Sobrenome : </label>
+                <input className="form-control" type="text" id = "name" name="name" placeholder="Digite seu sobrenome" 
                 required />
                 <label for="cpf">CPF : </label>
                 <input className="form-control" type="text" id = "cpf" name="cpf" placeholder="Digite seu CPF" 
@@ -27,8 +30,8 @@ export default function Register() {
                 <label for="password">Senha : </label>
                 <input className="form-control" type="password" id = "password" name="password" placeholder="Digite sua senha" 
                 required />
-                <label for="password">Repita a sua Senha : </label>
-                <input className="form-control" type="password" id = "password" name="password" placeholder="Digite sua senha" 
+                <label for="password2">Repita a sua Senha : </label>
+                <input className="form-control" type="password" id = "password2" name="password2" placeholder="Digite sua senha" 
                 required />
                 <br />
                 <button className="btn btn-success" type="submit">Sign up</button>
