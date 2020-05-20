@@ -1,8 +1,16 @@
 import React from 'react';
 import NavBar from '../components/NavBar';
+import {useSelector,useDispatch} from "react-redux";
+import * as form from '../redux/actions/register';
 
 
 export default function Login() {
+
+  const dispatch = useDispatch();
+  const data = useSelector((state)=>state.register);
+
+  console.log(data.email);
+
   return (
     <div className = "Login">
       <NavBar />
@@ -17,10 +25,10 @@ export default function Login() {
             <form>
                 <label for="email">Email : </label>
                 <input className="form-control" type="email" id = "email" name="email" placeholder="Digite seu email" 
-                required />
+                required onChange={(e) => {dispatch(form.setEmail(e.target.value))}} />
                 <label for="password">Senha : </label>
                 <input className="form-control" type="password" id = "password" name="password" placeholder="Digite sua senha" 
-                required />
+                required onChange={(e) => {dispatch(form.setPassword(e.target.value))}} />
                 <br />
                 <input className="btn btn-success" type="submit" value="Sign in" />
             </form>

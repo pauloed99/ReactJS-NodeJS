@@ -1,3 +1,4 @@
+/* eslint-disable default-case */
 const initialState = {
     name : '',
     lastName : '',
@@ -20,6 +21,8 @@ export default function register(state = initialState, action){
         case 'SET_PASSWORD' :
             return {...state, password : action.payload};
         case 'SET_PASSWORD2' :
-            return {...state, password2 : action.payload};            
+            return {...state, password2 : action.payload};
+        default :
+            return state;                
     }
 }

@@ -11,7 +11,9 @@ export default function travelRegister(state = initialState, action){
         case 'SET_COUNTRY' :
             return {...state, country : action.payload};
         case 'SET_CITY' :
-            return {...state, city : action.payload};        
+            return {...state, city : action.payload};
+        default :
+            return state;            
     }
 }
 
