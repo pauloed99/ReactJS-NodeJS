@@ -25,7 +25,7 @@ export default function App() {
             <Route path = "/login" component = {Login} />
             <Route path = "/register" component = {Register} />
             <Route exact path = "/dashboard" component = {Dashboard} />
-            <Route path = "/dashboard/stadiumList" component = {StadiumList} />
+            <Route exact path = "/dashboard/stadiumList" component = {StadiumList} />
             <Route path = "/dashboard/stadiumList/info" component = {StadiumInfo} />
             <Route path = "/dashboard/travel-register" component = {TravelRegister} />
           </Switch>

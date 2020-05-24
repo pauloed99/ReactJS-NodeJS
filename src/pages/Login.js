@@ -4,12 +4,36 @@ import {useSelector,useDispatch} from "react-redux";
 import * as form from '../redux/actions/register';
 
 
-export default function Login() {
+export default function Login(props) {
 
   const dispatch = useDispatch();
-  const data = useSelector((state)=>state.register);
+  const state = useSelector((state)=>state.register);
+  const msgError = state.msgError;
 
-  console.log(data.email);
+  const fetchConfig = {
+    method : 'POST',
+    body : JSON.stringify(state),
+    headers : new Headers({'Content-Type': 'application/json'})
+  };
+
+  async function signIn(e){
+    try {
+      e.preventDefault();
+      var response = await fetch('http://localhost:4000/auth/login', fetchConfig);
+      var data = await response.json();
+
+      if(!data.error){
+        localStorage.setItem('token', data.token);
+        props.history.push('/dashboard');
+      }else{
+        dispatch(form.setMsgError(data.error));
+      }
+      
+    } catch (error) {
+      console.log(`Erro de autenticação do usuário, erro : ${error}`);
+    }
+
+  }
 
   return (
     <div className = "Login">
@@ -30,10 +54,15 @@ export default function Login() {
                 <input className="form-control" type="password" id = "password" name="password" placeholder="Digite sua senha" 
                 required onChange={(e) => {dispatch(form.setPassword(e.target.value))}} />
                 <br />
-                <input className="btn btn-success" type="submit" value="Sign in" />
+                <button className="btn btn-success" onClick={signIn}>Sign in</button>
             </form>
           </div>
       </div>
+      {
+        !msgError ? null : (
+        <p className="container alert alert-danger mt-4">{msgError}</p>
+        )
+      }
     </div>
   );
 }

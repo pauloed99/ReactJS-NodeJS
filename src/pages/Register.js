@@ -4,12 +4,37 @@ import {useSelector,useDispatch} from "react-redux";
 import * as form from '../redux/actions/register';
 
 
-export default function Register() {
+export default function Register(props) {
   
   const dispatch = useDispatch()
-  const data = useSelector((state)=>state.register);
-  
+  const state = useSelector((state)=>state.register);
+  const msgError = state.msgError;
 
+
+  const fetchConfig = {
+    method : 'POST',
+    body : JSON.stringify(state),
+    headers : new Headers({'Content-Type': 'application/json'})
+  };
+  
+  async function signUp(e){
+    try {
+      e.preventDefault();
+      var response = await fetch('http://localhost:4000/auth/register', fetchConfig);
+      var data = await response.json();
+
+      if(!data.error){
+        localStorage.setItem('token', data.token);
+        props.history.push('/dashboard');
+      }else{
+        dispatch(form.setMsgError(data.error));
+      }
+
+    } catch (error) {
+      console.log(`Ocorreu um erro ao enviar os dados para registrar o usuário, erro : ${error}`);
+    }
+
+  }
   
   return (
     <div className = "Register">
@@ -23,29 +48,34 @@ export default function Register() {
       <div className="card container mt-4">
           <div className="card-body">
             <form>
-                <label for="name">Nome : </label>
-                <input className="form-control" type="text" id = "name" name="name" placeholder="Digite seu nome" 
-                required onChange={(e) => dispatch(form.setName(e.target.value))} />
+                <label for="firstName">Nome : </label>
+                <input className="form-control" type="text" id = "firstName" placeholder="Digite seu nome" 
+                required onChange={(e) => dispatch(form.setFirstName(e.target.value))} />
                 <label for="lastName">Sobrenome : </label>
-                <input className="form-control" type="text" id = "lastName" name="lastName" placeholder="Digite seu sobrenome" 
+                <input className="form-control" type="text" id = "lastName" placeholder="Digite seu sobrenome" 
                 required onChange={(e) => dispatch(form.setLastName(e.target.value))} />
                 <label for="cpf">CPF : </label>
-                <input className="form-control" type="text" id = "cpf" name="cpf" placeholder="Digite seu CPF" 
+                <input className="form-control" type="text" id = "cpf" placeholder="Digite seu CPF" 
                 required onChange={(e) => dispatch(form.setCpf(e.target.value))} />
                 <label for="email">Email : </label>
-                <input className="form-control" type="email" name="email" id="email" placeholder="digite seu email" 
+                <input className="form-control" type="email" id="email" placeholder="digite seu email" 
                 required onChange={(e) => dispatch(form.setEmail(e.target.value))} /> 
                 <label for="password">Senha : </label>
-                <input className="form-control" type="password" id = "password" name="password" placeholder="Digite sua senha" 
+                <input className="form-control" type="password" id = "password" placeholder="Digite sua senha" 
                 required onChange={(e) => dispatch(form.setPassword(e.target.value))} />
                 <label for="password2">Repita a sua Senha : </label>
-                <input className="form-control" type="password" id = "password2" name="password2" placeholder="Digite sua senha" 
+                <input className="form-control" type="password" id = "password2" placeholder="Digite sua senha" 
                 required onChange={(e) => dispatch(form.setPassword2(e.target.value))} />
                 <br />
-                <button className="btn btn-success" type="submit">Sign up</button>
+                <button className="btn btn-success" onClick={signUp}>Sign up</button>
             </form>
           </div>
       </div>
+      {
+        !msgError ? null : (
+        <p className="container alert alert-danger mt-4">{msgError}</p>
+        )
+      }
     </div>
   );
 }
