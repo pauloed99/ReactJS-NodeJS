@@ -6,8 +6,9 @@ const initialState = {
     email : '',
     password : '',
     password2 : '',
-    msgError : null
-}
+    msgError : null,
+    isLogged : false
+};
 
 export default function register(state = initialState, action){
     switch(action.type){
@@ -25,6 +26,8 @@ export default function register(state = initialState, action){
             return {...state, password2 : action.payload};
         case 'SET_MSG_ERROR' :
             return {...state, msgError : action.payload};    
+        case 'SET_IS_LOGGED' :
+            return {...state, isLogged : action.payload};    
         default :
             return state;                
     }

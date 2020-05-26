@@ -11,6 +11,7 @@ import StadiumList from './pages/StadiumList';
 import StadiumInfo from './pages/StadiumInfo';
 import TravelRegister from './pages/TravelRegister';
 import Dashboard from './pages/Dashboard';
+import PrivateRoute from './auth/PrivateRoute';
 
 
 const store = createStore(rootReducer);
@@ -24,10 +25,10 @@ export default function App() {
             <Route exact path = "/" component = {Home} />
             <Route path = "/login" component = {Login} />
             <Route path = "/register" component = {Register} />
-            <Route exact path = "/dashboard" component = {Dashboard} />
-            <Route exact path = "/dashboard/stadiumList" component = {StadiumList} />
-            <Route path = "/dashboard/stadiumList/info" component = {StadiumInfo} />
-            <Route path = "/dashboard/travel-register" component = {TravelRegister} />
+            <PrivateRoute exact path = "/dashboard" component = {Dashboard} />
+            <PrivateRoute exact path = "/dashboard/stadiumList" component = {StadiumList} />
+            <PrivateRoute path = "/dashboard/stadiumList/info" component = {StadiumInfo} />
+            <PrivateRoute path = "/dashboard/travel-register" component = {TravelRegister} />
           </Switch>
         </BrowserRouter>
       </Provider>  
