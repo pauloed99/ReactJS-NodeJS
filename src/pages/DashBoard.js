@@ -1,14 +1,12 @@
 import React, {useEffect} from 'react';
 import NavBar from '../components/NavBar';
 import {useSelector,useDispatch} from "react-redux";
-import * as form from '../redux/actions/register';
+import {setUser} from '../redux/actions/isLogged';
 
 
-export default function Dashboard(props){
-    const state = useSelector((state)=>state.register);
+export default function Dashboard(){
+    const state = useSelector((state)=>state.isLogged);
     const dispatch = useDispatch();
-
-
 
     useEffect(()=>{
 
@@ -20,23 +18,25 @@ export default function Dashboard(props){
                 headers : new Headers({'Authorization' : `Bearer ${token}`})
             };
 
-            const response = await fetch('http://localhost:4000/auth/authorization', fetchOptions);
-            const data = await response.json()
+            const response = await fetch('http://localhost:4000/auth/dashboard', fetchOptions);
+            
+            // eslint-disable-next-line react-hooks/exhaustive-deps
+            const data = await response.json();
 
             if(data.error)
-                dispatch(form.setIsLogged(false));
+                dispatch(setUser(null));
             else
-                dispatch(form.setIsLogged(true));    
+                dispatch(setUser(data.user));    
         }
 
         authorization();
         
     }, []);
     
-    if(!state.isLogged){
+    if(!state.user){
         return(
             <div className="Dashboard">
-                <h1>Loading...</h1>
+                <h1>Você não tem autorização para acessar essa página !</h1>
             </div>
         );
     }
@@ -45,6 +45,7 @@ export default function Dashboard(props){
         return(
             <div className="Dashboard">
                 <NavBar />
+                {state.user.email}
             </div>
         );    
 }

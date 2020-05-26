@@ -11,5 +11,3 @@ export const setPassword = (password) => ({type : 'SET_PASSWORD', payload : pass
 export const setPassword2 = (password2) => ({type : 'SET_PASSWORD2', payload : password2});
 
 export const setMsgError = (msgError) => ({type : 'SET_MSG_ERROR', payload : msgError});
-
-export const setIsLogged = (isLogged) => ({type : 'SET_IS_LOGGED', payload : isLogged});
