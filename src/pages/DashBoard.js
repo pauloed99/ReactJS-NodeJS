@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 import NavBar from '../components/NavBar';
 import {useSelector,useDispatch} from "react-redux";
 import {setUser} from '../redux/actions/isLogged';
+import JumbotronFluid from '../components/JumbotronFluid';
 
 
 export default function Dashboard(){
@@ -20,7 +21,7 @@ export default function Dashboard(){
 
             const response = await fetch('http://localhost:4000/auth/dashboard', fetchOptions);
             
-            // eslint-disable-next-line react-hooks/exhaustive-deps
+    
             const data = await response.json();
 
             if(data.error)
@@ -45,7 +46,10 @@ export default function Dashboard(){
         return(
             <div className="Dashboard">
                 <NavBar />
-                {state.user.email}
+                <JumbotronFluid title = {`Bem vindo sr(a) ${state.user.firstName}
+                ${state.user.lastName}`} text={`Navegue pela barra de navegação acima, para 
+                descobrir os estádio que oferecemos para você visitá-los e reserve suas viagens`} 
+                />
             </div>
         );    
 }

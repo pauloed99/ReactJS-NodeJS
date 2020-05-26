@@ -12,7 +12,7 @@ import StadiumInfo from './pages/StadiumInfo';
 import TravelRegister from './pages/TravelRegister';
 import Dashboard from './pages/Dashboard';
 import PrivateRoute from './auth/PrivateRoute';
-
+import Logout from './pages/Logout';
 
 const store = createStore(rootReducer);
 
@@ -25,6 +25,7 @@ export default function App() {
             <Route exact path = "/" component = {Home} />
             <Route path = "/login" component = {Login} />
             <Route path = "/register" component = {Register} />
+            <Route path = "/logout" component = {Logout} />
             <PrivateRoute exact path = "/dashboard" component = {Dashboard} />
             <PrivateRoute exact path = "/dashboard/stadiumList" component = {StadiumList} />
             <PrivateRoute path = "/dashboard/stadiumList/info" component = {StadiumInfo} />
