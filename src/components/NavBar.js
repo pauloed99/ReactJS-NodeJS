@@ -1,5 +1,6 @@
 import React from 'react';
 import {useSelector} from "react-redux";
+import {Link} from "react-router-dom";
 
 
 
@@ -13,7 +14,7 @@ export default function NavBar(){
             {
                 !state.user ? (
                     <nav className="navbar navbar-expand-lg navbar-dark" style={{backgroundColor:'dodgerBlue'}}>
-                        <a className="navbar-brand" href="/">Stadium Tour</a>
+                        <Link className="navbar-brand" to="/">Stadium Tour</Link>
                         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
                             <span className="navbar-toggler-icon"></span>
                         </button>
@@ -21,14 +22,14 @@ export default function NavBar(){
                         <div className="collapse navbar-collapse" id="conteudoNavbarSuportado">
                             <ul className="navbar-nav mr-auto">
                                 <li className="nav-item active">
-                                    <a className="nav-link" href="/">Home<span className="sr-only">(página atual)</span></a>
+                                    <Link className="nav-link" to="/">Home<span className="sr-only">(página atual)</span></Link>
                                 </li>
                                 <li className="nav-item active">
-                                    <a className="nav-link" href="/register">Register</a>
+                                    <Link className="nav-link" to="/register">Register</Link>
                                 </li>
                                 
                                 <li className="nav-item active">
-                                    <a className="nav-link " href="/login">Login</a>
+                                    <Link className="nav-link " to="/login">Login</Link>
                                 </li>
 
                             </ul>
@@ -37,7 +38,7 @@ export default function NavBar(){
                     </nav>
                 ) : (
                     <nav className="navbar navbar-expand-lg navbar-dark" style={{backgroundColor:'dodgerBlue'}}>
-                        <a className="navbar-brand" href="/dashboard">Dashboard</a>
+                        <Link className="navbar-brand" to="/dashboard">Dashboard</Link>
                         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
                             <span className="navbar-toggler-icon"></span>
                         </button>
@@ -45,24 +46,24 @@ export default function NavBar(){
                         <div className="collapse navbar-collapse" id="conteudoNavbarSuportado">
                             <ul className="navbar-nav mr-auto">
                                 <li className="nav-item active">
-                                    <a className="nav-link" href="/dashboard/user">Seus dados pessoais<span className="sr-only">(página atual)</span></a>
+                                    <Link className="nav-link" to="/dashboard/user">Seus dados pessoais<span className="sr-only">(página atual)</span></Link>
                                 </li>
                                 
                                 <li className="nav-item active">
-                                    <a className="nav-link" href="/dashboard/travels/update">Suas viagens programadas</a>
+                                    <Link className="nav-link" to="/dashboard/travels">Suas viagens programadas</Link>
                                 </li>
 
                                 <li className="nav-item active">
-                                    <a className="nav-link" href="/dashboard/travels/update">Suas viagens programadas</a>
+                                    <Link className="nav-link" to="/dashboard/travelRegister">Adicionar viagem na minha conta</Link>
                                 </li>
 
                                 <li class="nav-item dropdown active">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <Link class="nav-link dropdown-toggle" to="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Estádios
-                                    </a>
+                                    </Link>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="/dashboard/stadiumList">Lista de estádios</a>
-                                        <a class="dropdown-item" href="/dashboard/stadiumList/info">mais sobre os estádios</a>
+                                        <Link class="dropdown-item" to="/dashboard/stadiumList">Lista de estádios</Link>
+                                        <Link class="dropdown-item" to="/dashboard/stadiumList/info">mais sobre os estádios</Link>
                                     </div>
                                 </li>
 

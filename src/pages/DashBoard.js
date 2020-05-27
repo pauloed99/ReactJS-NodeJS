@@ -9,6 +9,7 @@ export default function Dashboard(){
     const state = useSelector((state)=>state.isLogged);
     const dispatch = useDispatch();
 
+
     useEffect(()=>{
 
         async function authorization(){
@@ -46,8 +47,8 @@ export default function Dashboard(){
         return(
             <div className="Dashboard">
                 <NavBar />
-                <JumbotronFluid title = {`Bem vindo sr(a) ${state.user.firstName}
-                ${state.user.lastName}`} text={`Navegue pela barra de navegação acima, para 
+                <JumbotronFluid title = {`Bem-vindo Sr(a). ${state.user.firstName}
+                ${state.user.lastName} !`} text={`Navegue pela barra de navegação acima, para 
                 descobrir os estádio que oferecemos para você visitá-los e reserve suas viagens`} 
                 />
             </div>

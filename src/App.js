@@ -13,6 +13,8 @@ import TravelRegister from './pages/TravelRegister';
 import Dashboard from './pages/Dashboard';
 import PrivateRoute from './auth/PrivateRoute';
 import Logout from './pages/Logout';
+import User from './pages/User';
+import Travel from './pages/Travel';
 
 const store = createStore(rootReducer);
 
@@ -29,7 +31,9 @@ export default function App() {
             <PrivateRoute exact path = "/dashboard" component = {Dashboard} />
             <PrivateRoute exact path = "/dashboard/stadiumList" component = {StadiumList} />
             <PrivateRoute path = "/dashboard/stadiumList/info" component = {StadiumInfo} />
-            <PrivateRoute path = "/dashboard/travel-register" component = {TravelRegister} />
+            <PrivateRoute path = "/dashboard/travelRegister" component = {TravelRegister} />
+            <PrivateRoute path = "/dashboard/user" component = {User} />
+            <PrivateRoute path = "/dashboard/travels" component = {Travel} />
           </Switch>
         </BrowserRouter>
       </Provider>  

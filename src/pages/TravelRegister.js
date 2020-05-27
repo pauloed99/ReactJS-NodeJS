@@ -1,12 +1,50 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import NavBar from '../components/NavBar';
 import {useSelector,useDispatch} from "react-redux";
 import * as form from '../redux/actions/travelRegister';
+import {setUser} from '../redux/actions/isLogged';
+
 
 export default function TravelRegister(){
 
     const dispatch = useDispatch();
-    const data = useSelector((state)=>state.travelRegister);
+    const state = useSelector((state)=>state.travelRegister);
+
+    const state2 = useSelector((state)=>state.isLogged);
+
+
+    useEffect(()=>{
+
+        async function authorization(){
+            const token = localStorage.getItem('token');
+
+            const fetchOptions = {
+                method : 'GET',
+                headers : new Headers({'Authorization' : `Bearer ${token}`})
+            };
+
+            const response = await fetch('http://localhost:4000/auth/dashboard', fetchOptions);
+            
+    
+            const data = await response.json();
+
+            if(data.error)
+                dispatch(setUser(null));
+            else
+                dispatch(setUser(data.user));    
+        }
+
+        authorization();
+        
+    }, []);
+    
+    if(!state.user){
+        return(
+            <div className="Dashboard">
+                <h1>Você não tem autorização para acessar essa página !</h1>
+            </div>
+        );
+    }
 
 
     return(
@@ -36,6 +74,10 @@ export default function TravelRegister(){
                         <label for="country">País de destino : </label>
                         <select className="form-control" id="country" name="country" 
                         onChange={(e) => dispatch(form.setCountry(e.target.value))} required >
+
+                            {
+                                state.stadium == 'Arena castelão'
+                            }
                             <option></option>
                             <option>Brasil</option>
                             <option>Argentina</option>
