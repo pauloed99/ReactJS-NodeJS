@@ -45,8 +45,15 @@ export default function NavBar(){
 
                         <div className="collapse navbar-collapse" id="conteudoNavbarSuportado">
                             <ul className="navbar-nav mr-auto">
-                                <li className="nav-item active">
-                                    <Link className="nav-link" to="/dashboard/user">Seus dados pessoais<span className="sr-only">(página atual)</span></Link>
+                                <li class="nav-item dropdown active">
+                                    <Link class="nav-link dropdown-toggle" to="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Seus dados pessoais
+                                    </Link>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <Link class="dropdown-item" to="/dashboard/user">Ver Dados</Link>
+                                        <Link class="dropdown-item" to="/dashboard/user/update">Alterar Dados</Link>
+                                        <Link class="dropdown-item" to="/dashboard/user/passwordUpdate">Alterar Senha</Link>
+                                    </div>
                                 </li>
                                 
                                 <li className="nav-item active">

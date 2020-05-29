@@ -53,25 +53,22 @@ export default function User(){
           <NavBar />
     
           <div className="container mt-4">
-            <h3>Abaixo estarão seus dados pessoais !</h3>
+            <h3>Modifique sua senha, se necessário !</h3>
             <hr />
           </div>  
         
           <div className="card container mt-4">
               <div className="card-body">
                 <form>
-                    <label for="firstName">Nome : </label>
-                    <input className="form-control" type="text" id = "firstName" placeholder="Digite seu nome" 
-                    required  value = {state.user.firstName} disabled />
-                    <label for="lastName">Sobrenome : </label>
-                    <input className="form-control" type="text" id = "lastName" placeholder="Digite seu sobrenome" 
-                    required  value = {state.user.lastName} disabled />
-                    <label for="cpf">CPF : </label>
-                    <input className="form-control" type="text" id = "cpf" placeholder="Digite seu CPF" 
-                    required  value = {state.user.cpf} disabled />
-                    <label for="email">Email : </label>
-                    <input className="form-control" type="email" id="email" placeholder="digite seu email" 
-                    required  value = {state.user.email} disabled /> 
+                    <label for="password">Digite senha antiga : </label>
+                    <input className="form-control" type="password" id = "password" 
+                    required />
+                    <label for="password2">Digite a sua nova senha : </label>
+                    <input className="form-control" type="password" id = "password2" 
+                    required />
+                    <label for="password3">Repita a sua nova senha : </label>
+                    <input className="form-control" type="password" id="password3"  
+                    required /> 
                     <br />
                 </form>
               </div>

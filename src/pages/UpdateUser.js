@@ -3,11 +3,13 @@ import NavBar from '../components/NavBar';
 import {useSelector,useDispatch} from "react-redux";
 import {setUser} from '../redux/actions/isLogged';
 import jwt_decode from 'jwt-decode';
+import * as form from '../redux/actions/register';
 
 
 export default function User(){
     
     const state = useSelector((state)=>state.isLogged);
+    const state2 = useSelector((state)=>state.register);
 
     const dispatch = useDispatch();
 
@@ -15,12 +17,45 @@ export default function User(){
     useEffect(()=>{
 
         async function authorization(){
-            const token = localStorage.getItem('token');
+            try {
+                const token = localStorage.getItem('token');
+                const decoded = jwt_decode(token);
+                const {email} = decoded;
+
+                const fetchOptions = {
+                    method : 'GET',
+                    headers : new Headers({'Authorization' : `Bearer ${token}`})
+                };
+
+                const response = await fetch(`http://localhost:4000/users/${email}`, fetchOptions);
+
+                const data = await response.json();
+
+                if(data.error)
+                    dispatch(setUser(null));
+                else
+                    dispatch(setUser(data.user));
+
+            } catch (error) {
+                dispatch(setUser(null));
+            }
+                
+        }
+
+        authorization();
+        
+    }, []);
+
+    async function update(e){
+        try {
+            e.preventDefault();
+            const token = localStorage.get('token');
             const decoded = jwt_decode(token);
             const {email} = decoded;
 
             const fetchOptions = {
-                method : 'GET',
+                method : 'PUT',
+                body : JSON.stringify(state2),
                 headers : new Headers({'Authorization' : `Bearer ${token}`})
             };
 
@@ -28,15 +63,16 @@ export default function User(){
 
             const data = await response.json();
 
+            localStorage.setItem('token', data.token);
+
             if(data.error)
                 dispatch(setUser(null));
-            else
-                dispatch(setUser(data.user));    
-        }
 
-        authorization();
+        } catch (error) {
+            dispatch(setUser(null));
+        }
         
-    }, []);
+    }
     
     if(!state.user){
         return(
@@ -46,14 +82,13 @@ export default function User(){
         );
     }
 
-
     
     return (
         <div className = "User">
           <NavBar />
     
           <div className="container mt-4">
-            <h3>Abaixo estarão seus dados pessoais !</h3>
+            <h3>Atualize seus dados, se necessário !</h3>
             <hr />
           </div>  
         
@@ -62,16 +97,18 @@ export default function User(){
                 <form>
                     <label for="firstName">Nome : </label>
                     <input className="form-control" type="text" id = "firstName" placeholder="Digite seu nome" 
-                    required  value = {state.user.firstName} disabled />
+                    required value = {state.user.setFirstName}
+                    onChange={(e) => form.setFirstName(e.target.value)}/>
                     <label for="lastName">Sobrenome : </label>
                     <input className="form-control" type="text" id = "lastName" placeholder="Digite seu sobrenome" 
-                    required  value = {state.user.lastName} disabled />
-                    <label for="cpf">CPF : </label>
-                    <input className="form-control" type="text" id = "cpf" placeholder="Digite seu CPF" 
-                    required  value = {state.user.cpf} disabled />
+                    required value = {state.user.setLastName}
+                    onChange={(e) => form.setLastName(e.target.value)} />
                     <label for="email">Email : </label>
                     <input className="form-control" type="email" id="email" placeholder="digite seu email" 
-                    required  value = {state.user.email} disabled /> 
+                    required value = {state.user.setFirstName}
+                    onChange={(e) => form.setEmail(e.target.value)} />
+
+                    <button className = "btn btn-success" onClick={update}>Alterar dados</button> 
                     <br />
                 </form>
               </div>
