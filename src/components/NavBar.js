@@ -1,6 +1,6 @@
 import React from 'react';
 import {useSelector} from "react-redux";
-import {Link} from "react-router-dom";
+
 
 
 
@@ -9,12 +9,12 @@ export default function NavBar(){
     const state = useSelector((state)=>state.isLogged);
 
     return(
-        <div className = "NavBar">
+        <div className="NavBar">
 
             {
                 !state.user ? (
                     <nav className="navbar navbar-expand-lg navbar-dark" style={{backgroundColor:'dodgerBlue'}}>
-                        <Link className="navbar-brand" to="/">Stadium Tour</Link>
+                        <a className="navbar-brand" href="/">Stadium Tour</a>
                         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
                             <span className="navbar-toggler-icon"></span>
                         </button>
@@ -22,14 +22,14 @@ export default function NavBar(){
                         <div className="collapse navbar-collapse" id="conteudoNavbarSuportado">
                             <ul className="navbar-nav mr-auto">
                                 <li className="nav-item active">
-                                    <Link className="nav-link" to="/">Home<span className="sr-only">(página atual)</span></Link>
+                                    <a className="nav-link" href="/">Home<span className="sr-only">(página atual)</span></a>
                                 </li>
                                 <li className="nav-item active">
-                                    <Link className="nav-link" to="/register">Register</Link>
+                                    <a className="nav-link" href="/register">Register</a>
                                 </li>
                                 
                                 <li className="nav-item active">
-                                    <Link className="nav-link " to="/login">Login</Link>
+                                    <a className="nav-link " href="/login">Login</a>
                                 </li>
 
                             </ul>
@@ -38,39 +38,39 @@ export default function NavBar(){
                     </nav>
                 ) : (
                     <nav className="navbar navbar-expand-lg navbar-dark" style={{backgroundColor:'dodgerBlue'}}>
-                        <Link className="navbar-brand" to="/dashboard">Dashboard</Link>
+                        <a className="navbar-brand" href="/dashboard">Dashboard</a>
                         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
                             <span className="navbar-toggler-icon"></span>
                         </button>
 
                         <div className="collapse navbar-collapse" id="conteudoNavbarSuportado">
                             <ul className="navbar-nav mr-auto">
-                                <li class="nav-item dropdown active">
-                                    <Link class="nav-link dropdown-toggle" to="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <li className="nav-item dropdown active">
+                                    <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Seus dados pessoais
-                                    </Link>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <Link class="dropdown-item" to="/dashboard/user">Ver Dados</Link>
-                                        <Link class="dropdown-item" to="/dashboard/user/update">Alterar Dados</Link>
-                                        <Link class="dropdown-item" to="/dashboard/user/passwordUpdate">Alterar Senha</Link>
+                                    </a>
+                                    <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a className="dropdown-item" href="/dashboard/user">Ver Dados</a>
+                                        <a className="dropdown-item" href="/dashboard/user/update">Alterar Dados</a>
+                                        <a className="dropdown-item" href="/dashboard/user/passwordUpdate">Alterar Senha</a>
                                     </div>
                                 </li>
                                 
                                 <li className="nav-item active">
-                                    <Link className="nav-link" to="/dashboard/travels">Suas viagens programadas</Link>
+                                    <a className="nav-link" href="/dashboard/travels">Suas viagens programadas</a>
                                 </li>
 
                                 <li className="nav-item active">
-                                    <Link className="nav-link" to="/dashboard/travelRegister">Adicionar viagem na minha conta</Link>
+                                    <a className="nav-link" href="/dashboard/travelRegister">Adicionar viagem na minha conta</a>
                                 </li>
 
-                                <li class="nav-item dropdown active">
-                                    <Link class="nav-link dropdown-toggle" to="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <li className="nav-item dropdown active">
+                                    <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Estádios
-                                    </Link>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <Link class="dropdown-item" to="/dashboard/stadiumList">Lista de estádios</Link>
-                                        <Link class="dropdown-item" to="/dashboard/stadiumList/info">mais sobre os estádios</Link>
+                                    </a>
+                                    <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a className="dropdown-item" href="/dashboard/stadiumList">Lista de estádios</a>
+                                        <a className="dropdown-item" href="/dashboard/stadiumList/info">mais sobre os estádios</a>
                                     </div>
                                 </li>
 

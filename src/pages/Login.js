@@ -47,10 +47,10 @@ export default function Login(props) {
       <div className="card container mt-4">
           <div className="card-body">
             <form>
-                <label for="email">Email : </label>
+                <label htmlFor="email">Email : </label>
                 <input className="form-control" type="email" id = "email" name="email" placeholder="Digite seu email" 
                 required onChange={(e) => {dispatch(form.setEmail(e.target.value))}} />
-                <label for="password">Senha : </label>
+                <label htmlFor="password">Senha : </label>
                 <input className="form-control" type="password" id = "password" name="password" placeholder="Digite sua senha" 
                 required onChange={(e) => {dispatch(form.setPassword(e.target.value))}} />
                 <br />

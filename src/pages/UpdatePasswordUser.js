@@ -60,13 +60,13 @@ export default function User(){
           <div className="card container mt-4">
               <div className="card-body">
                 <form>
-                    <label for="password">Digite senha antiga : </label>
+                    <label htmlFor="password">Digite senha antiga : </label>
                     <input className="form-control" type="password" id = "password" 
                     required />
-                    <label for="password2">Digite a sua nova senha : </label>
+                    <label htmlFor="password2">Digite a sua nova senha : </label>
                     <input className="form-control" type="password" id = "password2" 
                     required />
-                    <label for="password3">Repita a sua nova senha : </label>
+                    <label htmlFor="password3">Repita a sua nova senha : </label>
                     <input className="form-control" type="password" id="password3"  
                     required /> 
                     <br />

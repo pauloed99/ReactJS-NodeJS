@@ -55,7 +55,7 @@ export default function TravelRegister(){
             <div className="card">
                 <div className="card-body">
                     <form>
-                        <label for="stadium">Estádio que você vai visitar : </label>
+                        <label htmlFor="stadium">Estádio que você vai visitar : </label>
                         <select className="form-control" id="stadium" name="stadium" 
                         onChange={(e) => dispatch(form.setStadium(e.target.value))} required >
                             <option></option>
@@ -71,7 +71,7 @@ export default function TravelRegister(){
                             <option>Estádio Libertadores de América</option>
                             <option>Estádio El Cilindro</option>
                         </select>
-                        <label for="country">País de destino : </label>
+                        <label htmlFor="country">País de destino : </label>
                         <select className="form-control" id="country" name="country" 
                         onChange={(e) => dispatch(form.setCountry(e.target.value))} required >
 
@@ -82,7 +82,7 @@ export default function TravelRegister(){
                             <option>Brasil</option>
                             <option>Argentina</option>
                         </select>
-                        <label for="city">Cidade de destino : </label>
+                        <label htmlFor="city">Cidade de destino : </label>
                         <select className="form-control" id="city" name="city" 
                         onChange={(e) => dispatch(form.setCity(e.target.value))} required >
                             <option></option>

@@ -48,22 +48,22 @@ export default function Register(props) {
       <div className="card container mt-4">
           <div className="card-body">
             <form>
-                <label for="firstName">Nome : </label>
+                <label htmlFor="firstName">Nome : </label>
                 <input className="form-control" type="text" id = "firstName" placeholder="Digite seu nome" 
                 required onChange={(e) => dispatch(form.setFirstName(e.target.value))} />
-                <label for="lastName">Sobrenome : </label>
+                <label htmlFor="lastName">Sobrenome : </label>
                 <input className="form-control" type="text" id = "lastName" placeholder="Digite seu sobrenome" 
                 required onChange={(e) => dispatch(form.setLastName(e.target.value))} />
-                <label for="cpf">CPF : </label>
+                <label htmlFor="cpf">CPF : </label>
                 <input className="form-control" type="text" id = "cpf" placeholder="Digite seu CPF" 
                 required onChange={(e) => dispatch(form.setCpf(e.target.value))} />
-                <label for="email">Email : </label>
+                <label htmlFor="email">Email : </label>
                 <input className="form-control" type="email" id="email" placeholder="digite seu email" 
                 required onChange={(e) => dispatch(form.setEmail(e.target.value))} /> 
-                <label for="password">Senha : </label>
+                <label htmlFor="password">Senha : </label>
                 <input className="form-control" type="password" id = "password" placeholder="Digite sua senha" 
                 required onChange={(e) => dispatch(form.setPassword(e.target.value))} />
-                <label for="password2">Repita a sua Senha : </label>
+                <label htmlFor="password2">Repita a sua Senha : </label>
                 <input className="form-control" type="password" id = "password2" placeholder="Digite sua senha" 
                 required onChange={(e) => dispatch(form.setPassword2(e.target.value))} />
                 <br />
