@@ -2,12 +2,15 @@ import React, {useEffect} from 'react';
 import NavBar from '../components/NavBar';
 import {useSelector,useDispatch} from "react-redux";
 import {setUser} from '../redux/actions/isLogged';
+import * as form from '../redux/actions/passwordUpdate';
 import jwt_decode from 'jwt-decode';
 
 
 export default function User(){
     
     const state = useSelector((state)=>state.isLogged);
+    const state2 = useSelector((state)=>state.passwordUpdate);
+    const msgError = state2.msgError;
 
     const dispatch = useDispatch();
 
@@ -37,6 +40,37 @@ export default function User(){
         authorization();
         
     }, []);
+
+    async function update(e){
+        try {
+            e.preventDefault();
+            const token = localStorage.getItem('token');
+            const decoded = jwt_decode(token);
+            const {email} = decoded;
+           
+
+            const fetchOptions = {
+                method : 'PUT',
+                body : JSON.stringify(state2),
+                headers : new Headers({'Authorization' : `Bearer ${token}`, 
+                'Content-Type': 'application/json'})
+            };
+
+            const response = await fetch(`http://localhost:4000/users/${email}`, fetchOptions);
+            
+            const data = await response.json();
+
+            if(data.error)
+                dispatch(form.setMsgError(data.error));
+            else{
+                dispatch(setUser(data.user));    
+            }
+                
+        } catch (error) {
+            dispatch(form.setMsgError("Não foi possível se conectar com o servidor"));
+        }
+        
+    }
     
     if(!state.user){
         return(
@@ -45,7 +79,6 @@ export default function User(){
             </div>
         );
     }
-
 
     
     return (
@@ -62,18 +95,24 @@ export default function User(){
                 <form>
                     <label htmlFor="password">Digite senha antiga : </label>
                     <input className="form-control" type="password" id = "password" 
-                    required />
+                    required onChange={(e)=>dispatch(form.setPassword(e.target.value))} />
                     <label htmlFor="password2">Digite a sua nova senha : </label>
                     <input className="form-control" type="password" id = "password2" 
-                    required />
+                    required onChange={(e)=>dispatch(form.setPassword2(e.target.value))} />
                     <label htmlFor="password3">Repita a sua nova senha : </label>
                     <input className="form-control" type="password" id="password3"  
-                    required /> 
+                    required onChange={(e)=>dispatch(form.setPassword3(e.target.value))} /> 
                     <br />
+
+                    <button className="btn btn-success" onClick={update}>Alterar Senha</button>
                 </form>
               </div>
           </div>
-
+            {
+                !msgError ? null : (
+                    <p className="container alert alert-danger mt-4">{msgError}</p>
+                )
+            }
         </div>
       );
 }
