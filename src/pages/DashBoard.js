@@ -42,6 +42,14 @@ export default function Dashboard(){
         authorization();
         
     }, []);
+
+    async function showTravels(){
+        try {
+            
+        } catch (error) {
+            
+        }
+    }
     
     if(!state.user){
         return(
@@ -59,6 +67,13 @@ export default function Dashboard(){
                 ${state.user.lastName} !`} text={`Navegue pela barra de navegação acima, para 
                 descobrir os estádio que oferecemos para você visitá-los e reserve suas viagens`} 
                 />
+
+                <button className="btn btn-success mt-4" onClick={showTravels}>
+                    Mostrar suas viagens cadastradas
+                </button>
+                <hr />
+
+                
             </div>
         );    
 }

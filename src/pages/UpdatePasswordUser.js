@@ -4,6 +4,7 @@ import {useSelector,useDispatch} from "react-redux";
 import {setUser} from '../redux/actions/isLogged';
 import * as form from '../redux/actions/passwordUpdate';
 import jwt_decode from 'jwt-decode';
+import {useHistory} from 'react-router-dom';
 
 
 export default function User(){
@@ -11,6 +12,7 @@ export default function User(){
     const state = useSelector((state)=>state.isLogged);
     const state2 = useSelector((state)=>state.passwordUpdate);
     const msgError = state2.msgError;
+    const history = useHistory();
 
     const dispatch = useDispatch();
 
@@ -63,7 +65,7 @@ export default function User(){
             if(data.error)
                 dispatch(form.setMsgError(data.error));
             else{
-                dispatch(setUser(data.user));    
+                history.push('/dashboard');   
             }
                 
         } catch (error) {
@@ -74,7 +76,7 @@ export default function User(){
     
     if(!state.user){
         return(
-            <div className="User">
+            <div className="UpdatePasswordUser">
                 <h1>Você não tem autorização para acessar essa página !</h1>
             </div>
         );
@@ -82,7 +84,7 @@ export default function User(){
 
     
     return (
-        <div className = "User">
+        <div className = "UpdatePasswordUser">
           <NavBar />
     
           <div className="container mt-4">

@@ -1,0 +1,1 @@
+export const setTravels = (travels) => ({type : 'SET_TRAVELS', payload : travels});

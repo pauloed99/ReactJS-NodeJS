@@ -1,7 +1,8 @@
 const initialState = {
     stadium : '',
     country : '',
-    city : ''
+    city : '',
+    msgError : null
 }
 
 export default function travelRegister(state = initialState, action){
@@ -12,6 +13,8 @@ export default function travelRegister(state = initialState, action){
             return {...state, country : action.payload};
         case 'SET_CITY' :
             return {...state, city : action.payload};
+        case 'SET_MSG_ERROR' :
+            return {...state, msgError : action.payload}; 
         default :
             return state;            
     }

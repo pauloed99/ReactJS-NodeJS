@@ -4,6 +4,7 @@ import JumbotronFluid from '../components/JumbotronFluid';
 import CarouselStadiumList from '../components/CarouselStadiumList';
 import {useSelector, useDispatch} from 'react-redux';
 import {setUser} from '../redux/actions/isLogged';
+import jwt_decode from 'jwt-decode';
 
 export default function StadiumList(){
     
@@ -14,13 +15,15 @@ export default function StadiumList(){
 
         async function authorization(){
             const token = localStorage.getItem('token');
+            const decoded = jwt_decode(token);
+            const {email} = decoded;
 
             const fetchOptions = {
                 method : 'GET',
                 headers : new Headers({'Authorization' : `Bearer ${token}`})
             };
 
-            const response = await fetch('http://localhost:4000/auth/dashboard', fetchOptions);
+            const response = await fetch(`http://localhost:4000/users/${email}`, fetchOptions);
             
     
             const data = await response.json();
@@ -37,7 +40,7 @@ export default function StadiumList(){
     
     if(!state.user){
         return(
-            <div className="Dashboard">
+            <div className="StadiumList">
                 <h1>Você não tem autorização para acessar essa página !</h1>
             </div>
         );

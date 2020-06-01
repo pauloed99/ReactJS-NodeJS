@@ -49,13 +49,13 @@ export default function TravelRegister(props){
         
     }, []);
 
-    async function register(e){
+    async function update(e){
         try {
             e.preventDefault();
             const token = localStorage.getItem('token');
     
             const fetchOptions = {
-                method : 'POST',
+                method : 'PUT',
                 body : JSON.stringify(state2),
                 headers : new Headers({'Authorization' : `Bearer ${token}`, 
                 'Content-Type': 'application/json'})
@@ -79,7 +79,7 @@ export default function TravelRegister(props){
     
     if(!state.user){
         return(
-            <div className="TravelRegister">
+            <div className="TravelUpdate">
                 <h1>Você não tem autorização para acessar essa página !</h1>
             </div>
         );
@@ -87,14 +87,14 @@ export default function TravelRegister(props){
 
 
     return(
-        <div className="TravelRegister">
+        <div className="TravelUpdate">
             <NavBar />
-            <h2 className="mt-4">Cadastre e agende suas viagens para visitar os estádios de sua preferência !</h2>
+            <h2 className="mt-4">Altere dados das suas viagens !</h2>
             <hr />
             <div className="card">
                 <div className="card-body">
                     <form>
-                        <label htmlFor="stadium">Estádio que você vai visitar : </label>
+                        <label htmlFor="stadium">Estádio : </label>
                         <select className="form-control" id="stadium" required
                         onChange={(e) => dispatch(form.setStadium(e.target.value))} >
                             <option></option>
@@ -129,7 +129,7 @@ export default function TravelRegister(props){
                             <option>São Paulo</option>
                             <option>Buenos Aires</option>
                         </select>
-                        <button className="btn btn-success mt-4" onClick={register}>Register</button>
+                        <button className="btn btn-success mt-4" onClick={update}>Register</button>
                     </form>
                 </div>
             </div>

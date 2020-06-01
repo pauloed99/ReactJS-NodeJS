@@ -55,10 +55,6 @@ export default function NavBar(){
                                         <a className="dropdown-item" href="/dashboard/user/passwordUpdate">Alterar Senha</a>
                                     </div>
                                 </li>
-                                
-                                <li className="nav-item active">
-                                    <a className="nav-link" href="/dashboard/travels">Suas viagens programadas</a>
-                                </li>
 
                                 <li className="nav-item active">
                                     <a className="nav-link" href="/dashboard/travelRegister">Adicionar viagem na minha conta</a>

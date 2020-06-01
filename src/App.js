@@ -14,7 +14,7 @@ import Dashboard from './pages/Dashboard';
 import PrivateRoute from './auth/PrivateRoute';
 import Logout from './pages/Logout';
 import User from './pages/User';
-import Travel from './pages/Travel';
+import TravelUpdate from './pages/TravelUpdate';
 import UpdateUser from './pages/UpdateUser';
 import UpdatePasswordUser from './pages/UpdatePasswordUser';
 
@@ -38,7 +38,7 @@ export default function App() {
             <PrivateRoute exact path = "/dashboard/user" component = {User} />
             <PrivateRoute path = "/dashboard/user/update" component = {UpdateUser} />
             <PrivateRoute path = "/dashboard/user/passwordUpdate" component = {UpdatePasswordUser} />
-            <PrivateRoute path = "/dashboard/travels" component = {Travel} />
+            <PrivateRoute path = "/dashboard/travelUpdate" component = {TravelUpdate} />
           </Switch>
         </BrowserRouter>
       </Provider>  
