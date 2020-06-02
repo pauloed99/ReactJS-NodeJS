@@ -7,7 +7,7 @@ import jwt_decode from 'jwt-decode';
 import {useHistory} from 'react-router-dom';
 
 
-export default function TravelRegister(props){
+export default function TravelRegister(){
 
     const dispatch = useDispatch();
     const state = useSelector((state)=>state.isLogged);
@@ -61,7 +61,7 @@ export default function TravelRegister(props){
                 'Content-Type': 'application/json'})
             };
 
-            const response = await fetch('http://localhost:4000/users/travels', fetchOptions);
+            const response = await fetch('http://localhost:4000/travels', fetchOptions);
             
             const data = await response.json();
 

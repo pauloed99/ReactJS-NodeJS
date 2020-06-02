@@ -17,6 +17,7 @@ import User from './pages/User';
 import TravelUpdate from './pages/TravelUpdate';
 import UpdateUser from './pages/UpdateUser';
 import UpdatePasswordUser from './pages/UpdatePasswordUser';
+import TravelDelete from './pages/TravelDelete';
 
 
 const store = createStore(rootReducer);
@@ -38,7 +39,8 @@ export default function App() {
             <PrivateRoute exact path = "/dashboard/user" component = {User} />
             <PrivateRoute path = "/dashboard/user/update" component = {UpdateUser} />
             <PrivateRoute path = "/dashboard/user/passwordUpdate" component = {UpdatePasswordUser} />
-            <PrivateRoute path = "/dashboard/travelUpdate" component = {TravelUpdate} />
+            <PrivateRoute path = "/dashboard/travelUpdate/:travelId" component = {TravelUpdate} />
+            <PrivateRoute path = "/dashboard/travelDelete/:travelId" component = {TravelDelete} />
           </Switch>
         </BrowserRouter>
       </Provider>  

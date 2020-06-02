@@ -1,0 +1,1 @@
+export const setTravel = (travel) => ({type : 'SET_TRAVEL', payload : travel});

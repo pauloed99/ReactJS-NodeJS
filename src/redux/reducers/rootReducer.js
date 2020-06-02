@@ -3,6 +3,7 @@ import travelRegister from './travelRegisterReducer';
 import isLogged from './isLoggedReducer';
 import passwordUpdate from '../reducers/passwordUpdateReducer';
 import travels from './travelsReducer';
+import travel from './travelReducer';
 import { combineReducers } from 'redux';
 
 export const rootReducer = combineReducers({
@@ -10,7 +11,8 @@ export const rootReducer = combineReducers({
     travelRegister, 
     isLogged,
     passwordUpdate,
-    travels
+    travels,
+    travel
 });
 
 

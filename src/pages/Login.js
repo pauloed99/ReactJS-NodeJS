@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import NavBar from '../components/NavBar';
 import {useSelector,useDispatch} from "react-redux";
 import * as form from '../redux/actions/register';
+
 
 
 export default function Login(props) {
@@ -10,15 +11,20 @@ export default function Login(props) {
   const state = useSelector((state)=>state.register);
   const msgError = state.msgError;
 
-  const fetchConfig = {
-    method : 'POST',
-    body : JSON.stringify(state),
-    headers : new Headers({'Content-Type': 'application/json'})
-  };
+  useEffect(()=>{
+    const token = localStorage.getItem('token');
+    if(token)
+        props.history.push('/dashboard');
+  });
 
   async function signIn(e){
     try {
       e.preventDefault();
+      const fetchConfig = {
+        method : 'POST',
+        body : JSON.stringify(state),
+        headers : new Headers({'Content-Type': 'application/json'})
+      };
       var response = await fetch('http://localhost:4000/auth/login', fetchConfig);
       var data = await response.json();
 
